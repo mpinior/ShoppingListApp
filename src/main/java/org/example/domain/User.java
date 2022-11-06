@@ -3,8 +3,13 @@ package org.example.domain;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class User {
+public class User extends AggregateRoot {
     private UUID ID;
+
+    public String getName() {
+        return name;
+    }
+
     private String name;
     private String passwd;
     private ArrayList<ShoppingList> lists;
@@ -15,6 +20,7 @@ public class User {
         this.passwd = passwd;
         this.lists = new ArrayList();
     }
+
 
     public void setNewList(ShoppingList list){
         this.lists.add(list);

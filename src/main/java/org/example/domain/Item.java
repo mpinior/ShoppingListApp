@@ -1,6 +1,6 @@
 package org.example.domain;
 
-public class Item {
+public class Item extends Entity {
     private String name;
     private float value;
     private MeasureEnum measure;

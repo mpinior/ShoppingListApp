@@ -1,13 +1,21 @@
 package org.example.domain;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ShoppingList {
-    private Date date;
+public class ShoppingList extends Entity {
+    private String date;
     private ArrayList<Item> items;
 
-    public Date getDate() {
+    public ShoppingList(){
+        items = new ArrayList<>();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        date = formatter.format(new Date());
+    }
+
+    public String getDate() {
         return date;
     }
 
@@ -15,7 +23,7 @@ public class ShoppingList {
         return items;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
