@@ -20,5 +20,6 @@ public class ShoppingListController {
         User newUser = new User(userField.getText(), passwordField.getText());
         UserRepository.getInstance().add(newUser);
         actiontarget.setText("Logging " + userField.getText());
+        ShippingListApp.getInstance().userLogged();
     }
 }
