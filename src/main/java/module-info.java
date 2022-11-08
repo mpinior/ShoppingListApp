@@ -9,5 +9,7 @@ module ShoppingListApp {
     requires com.fasterxml.jackson.databind;
 
     opens org.example to javafx.fxml;
+    opens org.example.domain to com.fasterxml.jackson.databind;
+    opens org.example.persistance to com.fasterxml.jackson.databind;
     exports org.example;
 }

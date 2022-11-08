@@ -36,8 +36,8 @@ public class ShippingListApp extends Application {
 //        shoppingList.getItems().add(new Item("obroza", 1, MeasureEnum.szt));
 //        UserRepository.getInstance().add(user);
 //
-//        UserRepository.getInstance().saveAll();
-//        var users = UserRepository.getInstance().getAll();
+        UserRepository.getInstance().saveAll();
+        var users = UserRepository.getInstance().getAll();
         System.out.println("done");
 
         loginScene();

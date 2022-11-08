@@ -1,4 +1,4 @@
 package org.example.domain;
 
-public class AggregateRoot {
+public class AggregateRoot extends Entity{
 }

@@ -1,5 +1,8 @@
 package org.example.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,6 +16,12 @@ public class ShoppingList extends Entity {
         items = new ArrayList<>();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         date = formatter.format(new Date());
+    }
+
+    @JsonCreator
+    public ShoppingList(@JsonProperty("date") String date, @JsonProperty("items") ArrayList<Item> items){
+        this.date=date;
+        this.items=items;
     }
 
     public String getDate() {
