@@ -3,17 +3,19 @@ package org.example;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.example.persistance.PersistanceHelper;
+import org.example.domain.Item;
+import org.example.domain.MeasureEnum;
+import org.example.domain.ShoppingList;
+import org.example.domain.User;
 import org.example.persistance.UserRepository;
+import org.example.service.StageFactory;
+
+import java.util.ArrayList;
 
 public class ShippingListApp extends Application {
-    private Stage stage;
-    private boolean loginSuccessful = false;
+    public Stage stage;
     private static ShippingListApp instance;
 
     public synchronized static ShippingListApp getInstance(){
@@ -22,51 +24,24 @@ public class ShippingListApp extends Application {
         }
         return instance;
     }
-    public void userLogged(){
-        this.loginSuccessful=true;
-    }
 
     @Override
     public void start(Stage stage) throws Exception {
-        this.stage = stage;
-        //        User user = new User("ala", "123");
-//        ShoppingList shoppingList = new ShoppingList();
-//        user.getAllLists().add(shoppingList);
-//        shoppingList.getItems().add(new Item("zegarek", 1, MeasureEnum.szt));
-//        shoppingList.getItems().add(new Item("obroza", 1, MeasureEnum.szt));
-//        UserRepository.getInstance().add(user);
-//
+        User user = new User("ala", "123");
+        Item item = new Item("zegarek", 1, MeasureEnum.szt);
+        ArrayList lists = new ArrayList();
+        lists.add(item);
+        ShoppingList list = new ShoppingList("2022-10-10", lists, "najnowsze");
+        user.getAllLists().add(list);
+        UserRepository.getInstance().add(user);
         UserRepository.getInstance().saveAll();
-        var users = UserRepository.getInstance().getAll();
-        System.out.println("done");
 
-        loginScene();
-        if(loginSuccessful){
-            stage.close();
-            stage.setScene(HomeScene());
-            stage.show();
-        }
-    }
-
-    public Scene HomeScene() throws Exception{
-        Parent home = FXMLLoader.load(getClass().getResource("/home.fxml"));
-        Scene scene = new Scene(home);
-        return scene;
-    }
-
-    private void loginScene(){
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("main.fxml"));
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/main.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-            stage.setTitle("ShoppingList App");
-            stage.setScene(scene);
-            stage.show();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        var pair = StageFactory.getInstance().createLoginStage();
+        Scene scene = new Scene(pair.getKey(), 320, 240);
+        stage.setTitle("ShoppingList App");
+        stage.setScene(scene);
+        stage.show();
+        ShippingListApp.getInstance().stage=stage;
 
     }
 }

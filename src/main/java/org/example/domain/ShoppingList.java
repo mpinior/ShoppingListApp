@@ -12,6 +12,8 @@ public class ShoppingList extends Entity {
     private String date;
     private ArrayList<Item> items;
 
+    private String name;
+
     public ShoppingList(){
         items = new ArrayList<>();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
@@ -19,9 +21,10 @@ public class ShoppingList extends Entity {
     }
 
     @JsonCreator
-    public ShoppingList(@JsonProperty("date") String date, @JsonProperty("items") ArrayList<Item> items){
+    public ShoppingList(@JsonProperty("date") String date, @JsonProperty("items") ArrayList<Item> items, @JsonProperty String name){
         this.date=date;
         this.items=items;
+        this.name=name;
     }
 
     public String getDate() {
@@ -40,5 +43,8 @@ public class ShoppingList extends Entity {
         this.items = items;
     }
 
-
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

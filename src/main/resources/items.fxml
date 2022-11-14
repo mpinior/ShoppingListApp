@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.ItemsController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <CheckBox fx:id="updateCheckbox" layoutX="210.0" layoutY="69.0" mnemonicParsing="false" text="Update" />
+        <CheckBox fx:id="doneCheckbox" layoutX="210.0" layoutY="50.0" mnemonicParsing="false" text="Done" />
+        <TextField fx:id="itemName" layoutX="15.0" layoutY="14.0" prefHeight="25.0" prefWidth="270.0"  />
+        <TextField fx:id="valueName" layoutX="290.0" layoutY="14.0" prefHeight="25.0" prefWidth="50.0"  />
+        <ComboBox fx:id="measures"  layoutX="345.0" layoutY="14.0" prefHeight="25.0" prefWidth="20.0" onAction="#measureSelectionChanged"  />
+    </children>
+
+</AnchorPane>

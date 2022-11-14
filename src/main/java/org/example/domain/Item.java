@@ -14,4 +14,9 @@ public class Item extends Entity {
         this.name=name;
         this.value=value;
     }
+
+    @Override
+    public String toString(){
+        return this.name + " " + this.value + " " + this.measure;
+    }
 }

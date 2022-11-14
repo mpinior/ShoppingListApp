@@ -12,4 +12,6 @@ module ShoppingListApp {
     opens org.example.domain to com.fasterxml.jackson.databind;
     opens org.example.persistance to com.fasterxml.jackson.databind;
     exports org.example;
+    exports org.example.controller;
+    opens org.example.controller to javafx.fxml;
 }

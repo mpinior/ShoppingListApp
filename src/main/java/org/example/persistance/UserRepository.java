@@ -61,7 +61,14 @@ public class UserRepository implements IUserRepository {
     @Override
     public User find(String name) {
         //TODO maybe null, if name does not exist
-        return getAll().stream().filter(x -> x.getName().equals(name)).findFirst().get();
+        User user;
+        try {
+            user = getAll().stream().filter(x -> x.getName().equals(name)).findFirst().get();
+        }
+        catch(Exception e){
+            user = null;
+        }
+        return user;
     }
 
     private User loadUser(File file) {
