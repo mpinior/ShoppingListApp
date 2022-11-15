@@ -85,11 +85,12 @@ public class HomeScreenController {
     protected void updateItem(){
         if(userService.getShippingList().getItems().contains(selectedItem)) {
             userService.getShippingList().getItems().remove(selectedItem);
-            Item updated = new Item(itemName.getText(), Float.parseFloat(valueName.getText()), MeasureEnum.valueOf(measures.getSelectionModel().getSelectedItem().toString()));
-//        this.chosenList.add(updated);
-            userService.getShippingList().getItems().add(updated);
+            if(validateFloat(valueName.getText())) {
+                Item updated = new Item(itemName.getText(), Float.parseFloat(valueName.getText()), MeasureEnum.valueOf(measures.getSelectionModel().getSelectedItem().toString()));
+                userService.getShippingList().getItems().add(updated);
 
-            updateListView();
+                updateListView();
+            }
         }
     }
 
@@ -107,9 +108,11 @@ public class HomeScreenController {
     @FXML
     protected void addItem(){
         if(userService.getShippingList() != null) {
-            Item newItem = new Item(itemName.getText(), Float.parseFloat(valueName.getText()), MeasureEnum.valueOf(measures.getSelectionModel().getSelectedItem().toString()));
-            userService.getShippingList().getItems().add(newItem);
-            updateListView();
+            if(validateFloat(valueName.getText())) {
+                Item newItem = new Item(itemName.getText(), Float.parseFloat(valueName.getText()), MeasureEnum.valueOf(measures.getSelectionModel().getSelectedItem().toString()));
+                userService.getShippingList().getItems().add(newItem);
+                updateListView();
+            }
         }
     }
     @FXML
@@ -159,6 +162,16 @@ public class HomeScreenController {
         this.listDate.clear();
         this.listName.clear();
         this.itemList.getItems().clear();
+    }
+
+    private boolean validateFloat(String val){
+        try{
+            Float.parseFloat(val);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 
 }
