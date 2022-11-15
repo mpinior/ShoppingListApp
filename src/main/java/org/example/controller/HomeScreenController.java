@@ -107,12 +107,9 @@ public class HomeScreenController {
     @FXML
     protected void addItem(){
         if(userService.getShippingList() != null) {
-            if (!userService.getShippingList().getItems().contains(selectedItem)) {
-                Item newItem = new Item(itemName.getText(), Float.parseFloat(valueName.getText()), MeasureEnum.valueOf(measures.getSelectionModel().getSelectedItem().toString()));
-                userService.getShippingList().getItems().add(newItem);
-
-                updateListView();
-            }
+            Item newItem = new Item(itemName.getText(), Float.parseFloat(valueName.getText()), MeasureEnum.valueOf(measures.getSelectionModel().getSelectedItem().toString()));
+            userService.getShippingList().getItems().add(newItem);
+            updateListView();
         }
     }
     @FXML

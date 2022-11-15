@@ -2,14 +2,9 @@ package org.example.service;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 import javafx.util.Pair;
-import org.example.ShippingListApp;
 import org.example.controller.HomeScreenController;
-import org.example.controller.ItemsController;
 import org.example.controller.ShoppingListController;
 
 import java.io.IOException;
@@ -41,10 +36,6 @@ public class StageFactory {
         return loadFromFxmnl(pathToXMLs+"mainScreen.fxml");
     }
 
-    public Pair<AnchorPane, ShoppingListController>  createItemList(){
-        return loadFromFxmnl(pathToXMLs+"items.fxml");
-    }
-
     private <TUIElement extends Node, TController> Pair<TUIElement, TController> loadFromFxmnl(String path) {
         try {
             var fxmlLoader = new FXMLLoader(getClass().getResource(path));
@@ -55,9 +46,6 @@ public class StageFactory {
                 }
                 if(e == HomeScreenController.class){
                     return new HomeScreenController(iMediator.getUserService());
-                }
-                if(e == ItemsController.class){
-                    return new ItemsController(iMediator.getUserService());
                 }
                 return null;
             });
