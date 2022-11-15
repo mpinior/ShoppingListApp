@@ -15,6 +15,31 @@ public class Item extends Entity {
         this.value=value;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public float getValue() {
+        return value;
+    }
+
+    public MeasureEnum getMeasure() {
+        return measure;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setValue(float value) {
+        this.value = value;
+    }
+
+    public void setMeasure(MeasureEnum measure) {
+        this.measure = measure;
+    }
+
+
     @Override
     public String toString(){
         return this.name + " " + this.value + " " + this.measure;

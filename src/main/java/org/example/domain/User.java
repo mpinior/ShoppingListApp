@@ -50,4 +50,8 @@ public class User extends AggregateRoot {
         this.lists.remove(position);
     }
 
+    public void removeList(ShoppingList list){
+        this.lists.remove(list);
+    }
+
 }

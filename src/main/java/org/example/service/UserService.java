@@ -1,6 +1,8 @@
 package org.example.service;
 
+import org.example.ShippingListApp;
 import org.example.domain.Item;
+import org.example.domain.ShoppingList;
 import org.example.domain.User;
 import org.example.persistance.IUserRepository;
 import org.example.persistance.UserRepository;
@@ -12,6 +14,9 @@ public class UserService implements IUserService{
     private User currentUser = null;
 
     private ArrayList<Item> currentList = null;
+    private int currentListInt = -1;
+    private ShoppingList list = null;
+
     public UserService(IUserRepository userRepository){
         this.userRepository=userRepository;
     }
@@ -37,4 +42,17 @@ public class UserService implements IUserService{
     public ArrayList<Item> getCurrentList(){
         return currentList;
     }
+
+    public ShoppingList getShippingList(){
+        return list;
+    }
+
+    public void setShoppingList(ShoppingList list){
+        this.list = list;
+    }
+
+    public void setCurrentListInt(int val){
+        this.currentListInt=val;
+    }
+    public int getCurrentListInt(){ return this.currentListInt;}
 }

@@ -29,8 +29,10 @@ public class ShippingListApp extends Application {
     public void start(Stage stage) throws Exception {
         User user = new User("ala", "123");
         Item item = new Item("zegarek", 1, MeasureEnum.szt);
+        Item item2 = new Item("obroza", 1, MeasureEnum.szt);
         ArrayList lists = new ArrayList();
         lists.add(item);
+        lists.add(item2);
         ShoppingList list = new ShoppingList("2022-10-10", lists, "najnowsze");
         user.getAllLists().add(list);
         UserRepository.getInstance().add(user);
