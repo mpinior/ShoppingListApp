@@ -14,7 +14,6 @@ public class UserService implements IUserService{
     private User currentUser = null;
 
     private ArrayList<Item> currentList = null;
-    private int currentListInt = -1;
     private ShoppingList list = null;
 
     public UserService(IUserRepository userRepository){
@@ -30,6 +29,9 @@ public class UserService implements IUserService{
         }
         else{
             loggedUser = UserRepository.getInstance().find(name);
+            if(!loggedUser.getPasswd().equals(passwd)){
+                return null;
+            }
         }
         currentUser=loggedUser;
         return loggedUser;
@@ -51,8 +53,4 @@ public class UserService implements IUserService{
         this.list = list;
     }
 
-    public void setCurrentListInt(int val){
-        this.currentListInt=val;
-    }
-    public int getCurrentListInt(){ return this.currentListInt;}
 }

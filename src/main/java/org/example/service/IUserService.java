@@ -15,8 +15,5 @@ public interface IUserService {
     ShoppingList getShippingList();
     void setShoppingList(ShoppingList list);
 
-    int getCurrentListInt();
-
-    void setCurrentListInt(int val);
 }
 

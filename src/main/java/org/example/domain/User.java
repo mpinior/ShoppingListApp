@@ -54,4 +54,10 @@ public class User extends AggregateRoot {
         this.lists.remove(list);
     }
 
+
+    public String getPasswd() {
+        return passwd;
+    }
+
+
 }
