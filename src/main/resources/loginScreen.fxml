@@ -44,7 +44,7 @@
              onAction="#handleSubmitButtonAction" />
     </HBox>
 
-    <Text fx:id="actiontarget"
+    <Text fx:id="actionTarget"
           GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
 </GridPane>

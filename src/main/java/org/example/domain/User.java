@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class User extends AggregateRoot {
-    private UUID ID;
+    private final UUID ID;
 
     public String getName() {
         return name;

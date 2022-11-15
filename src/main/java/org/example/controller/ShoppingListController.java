@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
@@ -17,23 +16,23 @@ public class ShoppingListController {
     public TextField userField;
     @FXML
     public PasswordField passwordField;
-    @FXML private Text actiontarget;
+    @FXML private Text actionTarget;
 
-    private IUserService userService;
+    private final IUserService userService;
 
     public ShoppingListController(IUserService service){
         userService = service;
     }
 
     @FXML
-    protected void handleSubmitButtonAction(ActionEvent event) {
+    protected void handleSubmitButtonAction() {
         User loggedUser = userService.loginUser(userField.getText(), passwordField.getText());
 
         if(loggedUser == null){
-            actiontarget.setText("INCORRECT PASSWORD.");
+            actionTarget.setText("INCORRECT PASSWORD.");
         }
         else {
-            actiontarget.setText("Logging " + loggedUser.getName());
+            actionTarget.setText("Logging " + loggedUser.getName());
             try {
                 ShippingListApp.getInstance().stage.close();
 

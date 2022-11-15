@@ -2,17 +2,13 @@ package org.example.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import org.example.domain.Item;
 import org.example.domain.MeasureEnum;
 import org.example.domain.ShoppingList;
 import org.example.service.IUserService;
-
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class HomeScreenController {
 
@@ -23,8 +19,7 @@ public class HomeScreenController {
     @FXML
     private ListView<Item> itemList;
     private ArrayList<Item> chosenList;
-    private IUserService userService;
-
+    private final IUserService userService;
     private ShoppingList shoppingList;
 
     @FXML
@@ -65,6 +60,7 @@ public class HomeScreenController {
     protected void selectionChanged(){
         try {
             this.chosenList = lists.getSelectionModel().getSelectedItem().getItems();
+            updateListView();
             userService.setShoppingList(lists.getSelectionModel().getSelectedItem());
             this.itemList.getItems().clear();
             this.itemList.getItems().addAll(chosenList);
@@ -134,14 +130,13 @@ public class HomeScreenController {
             this.listName.setText("Nowa Lista");
             LocalDate dateObj = LocalDate.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            this.listDate.setText(dateObj.format(formatter).toString());
+            this.listDate.setText(dateObj.format(formatter));
             this.itemList.getItems().clear();
             firstClick=false;
         }
         else{
-            ArrayList<Item> items = new ArrayList<>();
-            items.addAll(this.itemList.getItems());
-            ShoppingList newList = new ShoppingList(this.listDate.getText(), new ArrayList<>(), this.listName.getText());
+            ArrayList<Item> items = new ArrayList<>(this.itemList.getItems());
+            ShoppingList newList = new ShoppingList(this.listDate.getText(), items, this.listName.getText());
             userService.getCurrentUser().setNewList(newList);
             firstClick=true;
             cleanListTextBoxes();
