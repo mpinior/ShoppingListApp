@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import org.example.domain.Item;
 import org.example.domain.MeasureEnum;
 import org.example.domain.ShoppingList;
+import org.example.persistance.IUserRepository;
 import org.example.service.IUserService;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -45,8 +46,11 @@ public class HomeScreenController {
 
     private Item selectedItem = null;
 
-    public HomeScreenController(IUserService service) {
+    private IUserRepository repository;
+
+    public HomeScreenController(IUserService service, IUserRepository repository) {
         userService=service;
+        this.repository = repository;
     }
 
     public void initialize(){
@@ -73,12 +77,12 @@ public class HomeScreenController {
 
     @FXML
     protected void displayClicked(){
-        //TODO how to get index of that chosen item?
         this.selectedItem = this.itemList.getSelectionModel().getSelectedItem();
-        //userService.setCurrentListInt(lists.getSelectionModel().getSelectedItem().getItems().indexOf(selectedItem));
-        itemName.setText(selectedItem.getName());
-        valueName.setText(Float.toString(selectedItem.getValue()));
-        measures.getSelectionModel().select(selectedItem.getMeasure());
+        if(this.selectedItem != null) {
+            itemName.setText(selectedItem.getName());
+            valueName.setText(Float.toString(selectedItem.getValue()));
+            measures.getSelectionModel().select(selectedItem.getMeasure());
+        }
     }
 
     @FXML
@@ -156,6 +160,11 @@ public class HomeScreenController {
         updateListView();
         cleanListTextBoxes();
 
+    }
+
+    @FXML
+    protected void saveUser(){
+        repository.saveAll();
     }
 
     private void cleanListTextBoxes(){

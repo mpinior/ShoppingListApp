@@ -45,7 +45,7 @@ public class StageFactory {
                     return new ShoppingListController(iMediator.getUserService());
                 }
                 if(e == HomeScreenController.class){
-                    return new HomeScreenController(iMediator.getUserService());
+                    return new HomeScreenController(iMediator.getUserService(), iMediator.getUserRepository());
                 }
                 return null;
             });

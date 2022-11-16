@@ -28,7 +28,7 @@ public class UserService implements IUserService{
             userRepository.add(loggedUser);
         }
         else{
-            loggedUser = UserRepository.getInstance().find(name);
+            loggedUser = userRepository.find(name);
             if(!loggedUser.getPasswd().equals(passwd)){
                 return null;
             }

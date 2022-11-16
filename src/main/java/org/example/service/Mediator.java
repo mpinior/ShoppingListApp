@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.persistance.IUserRepository;
 import org.example.persistance.UserRepository;
 
 public class Mediator implements IMediator{
@@ -12,5 +13,10 @@ public class Mediator implements IMediator{
     @Override
     public IUserService getUserService() {
         return userSrervice;
+    }
+
+    @Override
+    public IUserRepository getUserRepository() {
+        return UserRepository.getInstance();
     }
 }

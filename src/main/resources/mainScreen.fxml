@@ -19,6 +19,8 @@
     <Button fx:id="newListButton" layoutX="540.0" layoutY="10.0" mnemonicParsing="false" text="Add List" onAction="#addNewList"/>
     <Button fx:id="updateListButton" layoutX="605.0" layoutY="10.0" mnemonicParsing="false" text="Update List" onAction="#updateList"/>
 
+    <Button fx:id="saveButton" layoutX="750.0" layoutY="10.0" mnemonicParsing="false" text="Save all" onAction="#saveUser"/>
+
     <ListView fx:id="itemList" layoutY="300.0" prefHeight="400.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0"
               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0"  onMouseClicked="#displayClicked"/>
 
