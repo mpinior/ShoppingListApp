@@ -1,19 +1,9 @@
 package org.example;
 
-
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.domain.Item;
-import org.example.domain.MeasureEnum;
-import org.example.domain.ShoppingList;
-import org.example.domain.User;
-import org.example.persistance.UserRepository;
 import org.example.service.StageFactory;
-
-import java.util.ArrayList;
-
 public class ShippingListApp extends Application {
     public Stage stage;
     private static ShippingListApp instance;
