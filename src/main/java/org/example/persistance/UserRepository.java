@@ -11,17 +11,11 @@ import java.util.stream.Collectors;
 
 public class UserRepository implements IUserRepository {
     private final Set<User> users;
-    private static volatile UserRepository instance;
+    private IPersistanceHelper persistencyHelper;
 
-    public synchronized static UserRepository getInstance(){
-        if(instance == null){
-            instance = new UserRepository();
-        }
-        return instance;
-    }
-
-    private UserRepository(){
+    public UserRepository(IPersistanceHelper persistencyHelper){
         users = new HashSet<>();
+        this.persistencyHelper = persistencyHelper;
     }
 
     @Override
@@ -33,7 +27,7 @@ public class UserRepository implements IUserRepository {
 
     @Override
     public void save(User user) {
-        PersistanceHelper.getInstance().saveUserFile(user);
+        persistencyHelper.saveUserFile(user);
     }
 
     @Override
@@ -44,14 +38,14 @@ public class UserRepository implements IUserRepository {
     @Override
     public void remove(User user) {
         var userName = user.getName();
-        var file = PersistanceHelper.getInstance().getAllUserFiles().stream().filter(x -> userName.equals(IPersistanceHelper.getFileNameWithoutExtension(x))).findFirst();
-        file.ifPresent(PersistanceHelper.getInstance()::removeFile);
+        var file = persistencyHelper.getAllUserFiles().stream().filter(x -> userName.equals(IPersistanceHelper.getFileNameWithoutExtension(x))).findFirst();
+        file.ifPresent(persistencyHelper::removeFile);
         users.remove(user);
     }
 
     @Override
     public List<User> getAll() {
-        for (var file : PersistanceHelper.getInstance().getAllUserFiles()) {
+        for (var file : persistencyHelper.getAllUserFiles()) {
             loadUser(file);
         }
 
@@ -78,7 +72,7 @@ public class UserRepository implements IUserRepository {
             //noinspection OptionalGetWithoutIsPresent
             return users.stream().filter(x -> x.getName().toString().equals(userName)).findFirst().get();
         }
-        var newProject = PersistanceHelper.getInstance().loadFile(file, User.class);
+        var newProject = persistencyHelper.loadFile(file, User.class);
 
         users.add(newProject);
         return newProject;

@@ -21,20 +21,18 @@ import java.util.stream.Stream;
 
 public class PersistanceHelper implements IPersistanceHelper {
 
-    private static volatile PersistanceHelper instance;
-    public synchronized static PersistanceHelper getInstance(){
-        if(instance == null){
-            instance = new PersistanceHelper();
-        }
-        return instance;
-    }
-
-    private final Path persistenceDirectory = Paths.get("persistence").toAbsolutePath();
-    private final Path userDirectory = persistenceDirectory.resolve("users").toAbsolutePath();
+    private final Path persistenceDirectory;
+    private final Path userDirectory;
     private final ObjectMapper objectMapper;
 
 
-    private PersistanceHelper(){
+    public PersistanceHelper(){
+        this(null);
+    }
+
+    public PersistanceHelper(String persistancePath){
+        this.persistenceDirectory= Paths.get(persistancePath== null? "persistence" : persistancePath).toAbsolutePath();
+        this.userDirectory = persistenceDirectory.resolve("users").toAbsolutePath();
         var polymorphicTypeValidator = BasicPolymorphicTypeValidator.builder()
                 .allowIfBaseType(Entity.class)
                 .allowIfBaseType(List.class)
@@ -46,7 +44,6 @@ public class PersistanceHelper implements IPersistanceHelper {
         objectMapper.activateDefaultTyping(polymorphicTypeValidator, ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
         setupDirectories();
     }
-
 
     @Override
     public List<File> getAllUserFiles(){

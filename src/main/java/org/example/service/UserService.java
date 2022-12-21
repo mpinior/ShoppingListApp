@@ -1,19 +1,15 @@
 package org.example.service;
 
-import org.example.ShippingListApp;
 import org.example.domain.Item;
 import org.example.domain.ShoppingList;
 import org.example.domain.User;
 import org.example.persistance.IUserRepository;
-import org.example.persistance.UserRepository;
 
 import java.util.ArrayList;
 
 public class UserService implements IUserService{
     private IUserRepository userRepository;
     private User currentUser = null;
-
-    private ArrayList<Item> currentList = null;
     private ShoppingList list = null;
 
     public UserService(IUserRepository userRepository){
@@ -39,10 +35,6 @@ public class UserService implements IUserService{
 
     public User getCurrentUser(){
         return currentUser;
-    }
-
-    public ArrayList<Item> getCurrentList(){
-        return currentList;
     }
 
     public ShoppingList getShippingList(){

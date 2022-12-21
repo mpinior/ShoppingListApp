@@ -3,10 +3,7 @@ package org.example.domain;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ShoppingList extends Entity {
     private String date;
@@ -16,12 +13,10 @@ public class ShoppingList extends Entity {
 
     public ShoppingList(){
         items = new ArrayList<>();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        date = formatter.format(new Date());
     }
 
     @JsonCreator
-    public ShoppingList(@JsonProperty("date") String date, @JsonProperty("items") ArrayList<Item> items, @JsonProperty String name){
+    public ShoppingList(@JsonProperty("date") String date, @JsonProperty("items") ArrayList<Item> items, @JsonProperty("name") String name){
         this.date=date;
         this.items=items;
         this.name=name;
@@ -39,9 +34,6 @@ public class ShoppingList extends Entity {
         this.date = date;
     }
 
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
-    }
 
     public String getName() {
         return name;

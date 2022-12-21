@@ -10,7 +10,6 @@ public interface IUserService {
 
     User loginUser(String name, String passwd);
     User getCurrentUser();
-    ArrayList<Item> getCurrentList();
 
     ShoppingList getShippingList();
     void setShoppingList(ShoppingList list);

@@ -31,15 +31,6 @@ public class Item extends Entity {
         this.name = name;
     }
 
-    public void setValue(float value) {
-        this.value = value;
-    }
-
-    public void setMeasure(MeasureEnum measure) {
-        this.measure = measure;
-    }
-
-
     @Override
     public String toString(){
         return this.name + " " + this.value + " " + this.measure;

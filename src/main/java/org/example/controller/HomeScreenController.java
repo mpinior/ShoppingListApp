@@ -14,6 +14,11 @@ import java.util.ArrayList;
 public class HomeScreenController {
 
     private boolean firstClick = true;
+
+    public ComboBox<ShoppingList> getLists() {
+        return lists;
+    }
+
     @FXML
     private ComboBox<ShoppingList> lists;
 
@@ -61,7 +66,7 @@ public class HomeScreenController {
     }
 
     @FXML
-    protected void selectionChanged(){
+    private void selectionChanged(){
         try {
             this.chosenList = lists.getSelectionModel().getSelectedItem().getItems();
             updateListView();
@@ -76,7 +81,7 @@ public class HomeScreenController {
     }
 
     @FXML
-    protected void displayClicked(){
+    private void displayClicked(){
         this.selectedItem = this.itemList.getSelectionModel().getSelectedItem();
         if(this.selectedItem != null) {
             itemName.setText(selectedItem.getName());
@@ -86,7 +91,7 @@ public class HomeScreenController {
     }
 
     @FXML
-    protected void updateItem(){
+    private void updateItem(){
         if(userService.getShippingList().getItems().contains(selectedItem)) {
             userService.getShippingList().getItems().remove(selectedItem);
             if(validateFloat(valueName.getText())) {
@@ -110,7 +115,7 @@ public class HomeScreenController {
     }
 
     @FXML
-    protected void addItem(){
+    private void addItem(){
         if(userService.getShippingList() != null) {
             if(validateFloat(valueName.getText())) {
                 Item newItem = new Item(itemName.getText(), Float.parseFloat(valueName.getText()), MeasureEnum.valueOf(measures.getSelectionModel().getSelectedItem().toString()));
@@ -120,7 +125,7 @@ public class HomeScreenController {
         }
     }
     @FXML
-    protected void removeItem(){
+    private void removeItem(){
         if(userService.getShippingList().getItems().contains(selectedItem)) {
             userService.getShippingList().getItems().remove(selectedItem);
             updateListView();
@@ -128,7 +133,7 @@ public class HomeScreenController {
     }
 
     @FXML
-    protected void addNewList(){
+    private void addNewList(){
         //set default
         if (firstClick) {
             this.listName.setText("Nowa Lista");
@@ -150,7 +155,7 @@ public class HomeScreenController {
 
     }
     @FXML
-    protected void  updateList(){
+    private void  updateList(){
         shoppingList = lists.getSelectionModel().getSelectedItem();
         shoppingList.setName(this.listName.getText());
         shoppingList.setDate(this.listDate.getText());
@@ -163,7 +168,7 @@ public class HomeScreenController {
     }
 
     @FXML
-    protected void saveUser(){
+    private void saveUser(){
         repository.saveAll();
     }
 
