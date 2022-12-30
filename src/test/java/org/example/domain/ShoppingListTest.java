@@ -1,10 +1,7 @@
 package org.example.domain;
 
-import org.example.domain.Item;
-import org.example.domain.MeasureEnum;
-import org.example.domain.ShoppingList;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
@@ -29,7 +26,7 @@ public class ShoppingListTest {
 
         //act
         //assert
-        Assert.assertEquals(list.getDate(), "2022-02-02");
+        Assertions.assertEquals(list.getDate(), "2022-02-02");
     }
 
     @Test
@@ -42,7 +39,7 @@ public class ShoppingListTest {
 
         //act
         //assert
-        Assert.assertEquals(list.getItems(), items);
+        Assertions.assertEquals(list.getItems(), items);
     }
 
     @Test
@@ -56,7 +53,7 @@ public class ShoppingListTest {
         //act
         list.setDate("2022-01-01");
         //assert
-        Assert.assertEquals(list.getDate(), "2022-01-01");
+        Assertions.assertEquals(list.getDate(), "2022-01-01");
     }
 
     @Test
@@ -69,7 +66,7 @@ public class ShoppingListTest {
 
         //act
         //assert
-        Assert.assertEquals(list.getName(), "lista1");
+        Assertions.assertEquals(list.getName(), "lista1");
     }
 
     @Test
@@ -83,7 +80,7 @@ public class ShoppingListTest {
         //act
         list.setName("lista2");
         //assert
-        Assert.assertEquals(list.getName(), "lista2");
+        Assertions.assertEquals(list.getName(), "lista2");
     }
 
     @Test
@@ -96,7 +93,7 @@ public class ShoppingListTest {
 
         //act
         //assert
-        Assert.assertEquals(list.toString(), "lista1");
+        Assertions.assertEquals(list.toString(), "lista1");
     }
 
 

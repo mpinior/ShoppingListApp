@@ -1,17 +1,9 @@
 package org.example.domain;
 
-import org.example.domain.Item;
-import org.example.domain.MeasureEnum;
-import org.example.domain.ShoppingList;
-import org.example.domain.User;
-import org.example.persistance.IPersistanceHelper;
-import org.example.persistance.UserRepository;
-import org.junit.Assert;
-import org.junit.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class UserTest {
     User generateUser(String name, String passwd){
@@ -30,7 +22,7 @@ public class UserTest {
         user.setNewList(sp);
         //assert
 
-        Assert.assertEquals(user.getAllLists().get(0), sp);
+        Assertions.assertEquals(user.getAllLists().get(0), sp);
     }
 
     @Test
@@ -47,7 +39,7 @@ public class UserTest {
         user.setNewList(sp);
         //assert
 
-        Assert.assertEquals(user.getAllLists(), spList);
+        Assertions.assertEquals(user.getAllLists(), spList);
     }
 
     @Test
@@ -58,6 +50,6 @@ public class UserTest {
         //act
 
         //assert
-        Assert.assertEquals(user.getPasswd(), "456");
+        Assertions.assertEquals(user.getPasswd(), "456");
     }
 }

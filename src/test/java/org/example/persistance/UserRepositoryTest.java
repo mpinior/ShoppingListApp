@@ -1,10 +1,9 @@
 package org.example.persistance;
 
 import org.example.domain.User;
-import org.example.persistance.IPersistanceHelper;
-import org.example.persistance.UserRepository;
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class UserRepositoryTest {
         //act
         repository.add(user);
         //assert
-        Assert.assertNotNull(repository.find(user.getName()));
+        Assertions.assertNotNull(repository.find(user.getName()));
     }
 
     @Test
@@ -40,7 +39,7 @@ public class UserRepositoryTest {
         repository.add(user);
         repository.remove(user);
         //assert
-        Assert.assertNull(repository.find(user.getName()));
+        Assertions.assertNull(repository.find(user.getName()));
     }
 
     @Test
@@ -59,7 +58,7 @@ public class UserRepositoryTest {
         testList.add(user);
         //assert
 
-        Assert.assertEquals(testList, repository.getAll());
+        Assertions.assertEquals(testList, repository.getAll());
     }
 
     @Test
@@ -74,7 +73,7 @@ public class UserRepositoryTest {
         repository.add(user);
         //assert
 
-        Assert.assertEquals(repository.find("ala"), user);
+        Assertions.assertEquals(repository.find("ala"), user);
     }
 
 

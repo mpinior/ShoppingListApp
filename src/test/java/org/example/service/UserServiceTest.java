@@ -4,16 +4,13 @@ import org.example.domain.Item;
 import org.example.domain.MeasureEnum;
 import org.example.domain.ShoppingList;
 import org.example.domain.User;
-import org.example.persistance.IPersistanceHelper;
 import org.example.persistance.IUserRepository;
-import org.example.persistance.UserRepository;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 public class UserServiceTest {
@@ -29,7 +26,7 @@ public class UserServiceTest {
         when(repository.find("ala")).thenReturn(user);
         IUserService userService = new UserService(repository);
 
-        Assert.assertEquals(userService.loginUser("ala", "456").getName(), user.getName());
+        Assertions.assertEquals(userService.loginUser("ala", "456").getName(), user.getName());
 
     }
 
@@ -43,7 +40,7 @@ public class UserServiceTest {
 
         userService.loginUser("ala", "456");
 
-        Assert.assertEquals(userService.getCurrentUser(), user);
+        Assertions.assertEquals(userService.getCurrentUser(), user);
     }
 
     @Test
@@ -63,7 +60,7 @@ public class UserServiceTest {
 
         userService.setShoppingList(list);
 
-        Assert.assertEquals(userService.getShippingList(), list);
+        Assertions.assertEquals(userService.getShippingList(), list);
     }
 
     @Test
@@ -83,6 +80,6 @@ public class UserServiceTest {
 
         userService.setShoppingList(list);
 
-        Assert.assertEquals(userService.getShippingList(), list);
+        Assertions.assertEquals(userService.getShippingList(), list);
     }
 }

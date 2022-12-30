@@ -1,7 +1,8 @@
 package org.example.domain;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class ItemTest {
 
@@ -17,7 +18,7 @@ public class ItemTest {
 
         //act
         //assert
-        Assert.assertEquals(item.getName(), "mleko");
+        Assertions.assertEquals(item.getName(), "mleko");
     }
 
     @Test
@@ -27,7 +28,7 @@ public class ItemTest {
 
         //act
         //assert
-        Assert.assertEquals(item.getValue(), 200.0f, 0.0);
+        Assertions.assertEquals(item.getValue(), 200.0f, 0.0);
     }
 
     @Test
@@ -37,7 +38,7 @@ public class ItemTest {
 
         //act
         //assert
-        Assert.assertEquals(item.getMeasure(), MeasureEnum.ml);
+        Assertions.assertEquals(item.getMeasure(), MeasureEnum.ml);
     }
 
     @Test
@@ -47,7 +48,7 @@ public class ItemTest {
         //act
         item.setName("woda");
         //assert
-        Assert.assertEquals(item.getName(), "woda");
+        Assertions.assertEquals(item.getName(), "woda");
     }
 
     @Test
@@ -55,6 +56,6 @@ public class ItemTest {
         //arrange
         Item item = generateItem("mleko", 200.0f, MeasureEnum.ml);
         //assert
-        Assert.assertEquals(item.toString(), "mleko 200.0 ml");
+        Assertions.assertEquals(item.toString(), "mleko 200.0 ml");
     }
 }

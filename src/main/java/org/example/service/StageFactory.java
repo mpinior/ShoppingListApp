@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class StageFactory {
     private final IMediator iMediator;
-    // private final FXMLLoader fxmlLoader;
     private String pathToXMLs = "/";
 
     private static StageFactory instance;

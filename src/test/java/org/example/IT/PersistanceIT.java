@@ -1,22 +1,20 @@
 package org.example.IT;
 
 import org.apache.commons.io.FileUtils;
-import org.example.domain.Item;
-import org.example.domain.MeasureEnum;
-import org.example.domain.ShoppingList;
 import org.example.domain.User;
-import org.example.persistance.IPersistanceHelper;
+
 import org.example.persistance.PersistanceHelper;
 import org.example.persistance.UserRepository;
 import org.example.service.UserService;
-import org.junit.*;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
 
 
 public class PersistanceIT {
@@ -28,7 +26,7 @@ public class PersistanceIT {
     }
 
     //czyscic folder
-    @BeforeClass
+    @BeforeAll
     public static void setUp(){
         String path = Paths.get(".").toAbsolutePath().toString();
         StringBuilder sb = new StringBuilder(path);
@@ -51,7 +49,7 @@ public class PersistanceIT {
         UserRepository testUp = new UserRepository(new PersistanceHelper("test_persistance"));
         List<User> users = testUp.getAll();
 
-        Assert.assertNotNull(users);
+        Assertions.assertNotNull(users);
     }
 
     @Test
@@ -63,7 +61,7 @@ public class PersistanceIT {
         UserRepository testUp = new UserRepository(new PersistanceHelper("test_persistance"));
         List<User> users = testUp.getAll();
 
-        Assert.assertTrue(users.isEmpty());
+        Assertions.assertTrue(users.isEmpty());
     }
 
     @Test
@@ -73,7 +71,7 @@ public class PersistanceIT {
 
         UserRepository testUp = new UserRepository(new PersistanceHelper("test_persistance"));
 
-        Assert.assertNotNull(testUp.find("ala"));
+        Assertions.assertNotNull(testUp.find("ala"));
     }
 
     @Test
@@ -85,7 +83,7 @@ public class PersistanceIT {
 
         us.loginUser("ala", "123");
 
-        Assert.assertEquals(us.getCurrentUser().getName(), user.getName());
+        Assertions.assertEquals(us.getCurrentUser().getName(), user.getName());
     }
 
     @Test
@@ -95,7 +93,7 @@ public class PersistanceIT {
 
         us.loginUser("ola", "123");
 
-        Assert.assertEquals(us.getCurrentUser().getName(), "ola");
+        Assertions.assertEquals(us.getCurrentUser().getName(), "ola");
     }
 
 }
