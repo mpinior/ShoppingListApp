@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Report</title>
+  <script type='text/javascript' src='https://code.jquery.com/jquery-2.1.0.js'></script>
+
+  <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  <link href="https://dl.betterscan.io/assets/css/reportstyle.css" rel="stylesheet">
+
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+var data =
+[
+    {
+        "hash": "808150c5c86c9ea673b50a712f0c5948",
+        "description": "The sensitive information may be valuable information on its own (such as a password), or it\nmay be useful for launching other, more deadly attacks. If an attack fails, an attacker may use\nerror information provided by the server to launch another more focused attack. For example, an\nattempt to exploit a path traversal weakness (CWE-22) might yield the full pathname of the\ninstalled application.\n",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/ShoppingListController.java",
+        "line": 46
+    },
+    {
+        "hash": "49bbe26b7abdece78c1e28e9bc0a1f74",
+        "description": "Unused import 'java.io.IOException'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/persistance/IPersistanceHelper.java",
+        "line": 6
+    },
+    {
+        "hash": "bffc8e25495110fa92d0b5e157051a79",
+        "description": "Avoid unused private methods such as 'removeItem()'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 128
+    },
+    {
+        "hash": "aef72f45bfdeeb83830a535d1eb78f3b",
+        "description": "Package name contains upper case characters",
+        "severity": "Warning",
+        "file": "src/test/java/org/example/IT/PersistanceIT.java",
+        "line": 1
+    },
+    {
+        "hash": "a9a13ed1ca279f56a6f2cbd02a8498fb",
+        "description": "Avoid unused local variables such as 'users'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/Main.java",
+        "line": 19
+    },
+    {
+        "hash": "74f844396990e8af796e03cbc6a5f8b1",
+        "description": "Unused import 'org.example.domain.ShoppingList'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/Main.java",
+        "line": 5
+    },
+    {
+        "hash": "eaa6f8236e92ae2e9b47a9c489865534",
+        "description": "Avoid unused private fields such as 'ID'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/domain/User.java",
+        "line": 10
+    },
+    {
+        "hash": "8988f7d2e2675fb6f606b238f8eec5e6",
+        "description": "This statement should have braces",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/persistance/IPersistanceHelper.java",
+        "line": 28
+    },
+    {
+        "hash": "aed3fcc0b41945304e4cfdc987ce29de",
+        "description": "Avoid unused local variables such as 'testList'.",
+        "severity": "Warning",
+        "file": "src/test/java/org/example/persistance/UserRepositoryTest.java",
+        "line": 70
+    },
+    {
+        "hash": "52ff1d9ce5bb0e33dbf661c42d0cc951",
+        "description": "Avoid unused local variables such as 'signInButton'.",
+        "severity": "Warning",
+        "file": "src/test/java/org/example/controller/LoginControllerTest.java",
+        "line": 33
+    },
+    {
+        "hash": "66d8fed1d34eadd76b192da2ed99f697",
+        "description": "Avoid unused local variables such as 'user'.",
+        "severity": "Warning",
+        "file": "src/test/java/org/example/controller/HomeScreenControllerTest.java",
+        "line": 39
+    },
+    {
+        "hash": "6728e65895842296c3877708a14a730d",
+        "description": "Unused import 'org.example.domain.AggregateRoot'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/persistance/PersistanceHelper.java",
+        "line": 9
+    },
+    {
+        "hash": "c4cb5ecc8c84ad8307364fd8e459b4cc",
+        "description": "Avoid empty catch blocks",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 79
+    },
+    {
+        "hash": "ef21516c4fcd6bafdf02f069839142a5",
+        "description": "Perhaps 'persistanceHelper' could be replaced by a local variable.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/service/Mediator.java",
+        "line": 12
+    },
+    {
+        "hash": "67409cbdc81ecd47ce38aa25b95087f8",
+        "description": "Perhaps 'shoppingList' could be replaced by a local variable.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 29
+    },
+    {
+        "hash": "c56b2aee5c1a0c3c25dd418ecb5d6b79",
+        "description": "Unused import 'javafx.scene.control.*'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 4
+    },
+    {
+        "hash": "6e2e5a94d93c22934ac69cbf9352b478",
+        "description": "All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/Main.java",
+        "line": 9
+    },
+    {
+        "hash": "3c1f0135cc2e6885009b6140aa451acd",
+        "description": "Avoid unused private methods such as 'updateList()'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 158
+    },
+    {
+        "hash": "3b2b6c346421c704f3e611934a2229cf",
+        "description": "Unused import 'java.util.ArrayList'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/persistance/IPersistanceHelper.java",
+        "line": 9
+    },
+    {
+        "hash": "19a252c4b8f0d7280e1460867fc46179",
+        "description": "Unused import 'com.fasterxml.jackson.databind.DeserializationFeature'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/persistance/PersistanceHelper.java",
+        "line": 6
+    },
+    {
+        "hash": "02c0bff17bd44653ab111f4f51853e11",
+        "description": "Unused import 'org.example.domain.User'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/Main.java",
+        "line": 6
+    },
+    {
+        "hash": "21fbeb052f1b3576fa010404185bdba3",
+        "description": "Unused import 'javafx.scene.control.Label'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/ShoppingListController.java",
+        "line": 5
+    },
+    {
+        "hash": "6a7d318155d63363ec3825c9641835b6",
+        "description": "Unused import 'org.example.domain.Item'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/Main.java",
+        "line": 3
+    },
+    {
+        "hash": "0da95e401f7139d299fb89ebadd6f47e",
+        "description": "Avoid using implementation types like 'ArrayList'; use the interface instead",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 27
+    },
+    {
+        "hash": "62c85ef90760465fcf10e7e8f847d402",
+        "description": "Avoid unused local variables such as 'passwd'.",
+        "severity": "Warning",
+        "file": "src/test/java/org/example/controller/LoginControllerTest.java",
+        "line": 49
+    },
+    {
+        "hash": "7014aa6f00258e72733f6227475aa709",
+        "description": "Unused import 'java.nio.file.Files'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/persistance/IPersistanceHelper.java",
+        "line": 7
+    },
+    {
+        "hash": "dd1e018ed1cd0d3ddf0bd87d1cfae011",
+        "description": "Avoid unused private methods such as 'displayClicked()'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 84
+    },
+    {
+        "hash": "d3e8bcb082ff7c414a2333dfd8988035",
+        "description": "Avoid unused private methods such as 'saveUser()'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 171
+    },
+    {
+        "hash": "79d35aa72bc8f85c3a79f5f4c264a329",
+        "description": "Avoid unused private methods such as 'addNewList()'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 136
+    },
+    {
+        "hash": "1383e5d2eb1dacd125ba383b3d2f55d7",
+        "description": "Avoid unused local variables such as 'name'.",
+        "severity": "Warning",
+        "file": "src/test/java/org/example/controller/LoginControllerTest.java",
+        "line": 48
+    },
+    {
+        "hash": "6eca69b04a1881b63dbe15bc05cdf144",
+        "description": "Unused import 'org.example.domain.MeasureEnum'",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/Main.java",
+        "line": 4
+    },
+    {
+        "hash": "0a2d98dceeb99a5b8843aff1333ab148",
+        "description": "Avoid unused private methods such as 'selectionChanged()'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 69
+    },
+    {
+        "hash": "d4fc82cf85db560d26c7831d87634e16",
+        "description": "Avoid unused private methods such as 'updateItem()'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 94
+    },
+    {
+        "hash": "626b585eb13f6bb53bfe0df31ce2f1cc",
+        "description": "Avoid unused private methods such as 'addItem()'.",
+        "severity": "Warning",
+        "file": "src/main/java/org/example/controller/HomeScreenController.java",
+        "line": 118
+    },
+    {
+        "hash": "484ac0bafa46cae876575e846dfbdba3",
+        "description": "GHSA-jjjh-jjxp-wpff",
+        "severity": "Warning",
+        "file": "pom.xml",
+        "line": 1
+    },
+    {
+        "hash": "217c24a7a95586eadaf2e26028d1d0ef",
+        "description": "GHSA-rgv9-q543-rqg4",
+        "severity": "Warning",
+        "file": "pom.xml",
+        "line": 1
+    },
+    {
+        "hash": "8e40a213417f2767f2106e41fe6be9e4",
+        "description": "Ensure top-level permissions are not set to write-all",
+        "severity": "Warning",
+        "file": ".github/workflows/betterscan.yml",
+        "line": 0
+    }
+]
+var sort_by = function(field, reverse, primer){
+
+   var key = primer ?
+       function(x) {return primer(x[field])} :
+       function(x) {return x[field]};
+
+   reverse = !reverse ? 1 : -1;
+
+   return function (a, b) {
+       return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
+     }
+}
+
+for(var i = 0; i < data.length; i++) {
+
+    if(data[i].risk=="Information")
+    {
+        data[i].risk_no=1;
+    }
+
+    if(data[i].risk=="Low")
+    {
+        data[i].risk_no=2;
+    }
+
+    if(data[i].risk=="Medium")
+    {
+        data[i].risk_no=3;
+    }
+
+    if(data[i].risk=="High")
+    {
+        data[i].risk_no=4;
+    }
+
+
+
+
+
+}
+
+data.sort(sort_by('risk_no', true, parseInt));
+
+
+
+for(var i = 0; i < data.length; i++) {
+$('#findings').append("<tbody><tr><th>File</th><td>"+data[i].file+"</td></tr>");
+$('#findings').append("<tr><th>Description</th><td>"+data[i].description+"</td></tr>");
+$('#findings').append("<tr><th>Severity</th><td>Warning</td></tr>");
+$('#findings').append("<tr><th>Line</th><td>"+data[i].line+"</td></tr></tbody></table>");
+$('#hr').append("<hr>");
+
+}
+
+
+});//]]>
+
+</script>
+
+
+</head>
+
+ <div class="container-fluid">
+
+
+
+
+<p style="margin-bottom: 25px;"><img src="https://dl.betterscan.io/wp-content/uploads/2022/05/logo-nobackground-164x32-1.png" style="position:relative; top:-40px;"></p>
+
+<div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#overview" data-toggle="tab">Summary</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="overview">
+
+
+<div class="alert alert-info">
+    <b>Tags</b>:
+
+        Security Final Report
+
+
+</div>
+
+<section id="information">
+    <div class="box">
+        <h4>Report</h4>
+        <div class="box-content" style="padding: 0;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="border-top: 0;">Type</th>
+
+                         <td style="border-top: 0;">FILE</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+
+</section>
+<hr>
+
+    <section id="file">
+    <h4>File Details</h4>
+    <div class="box">
+        <div class="box-content" style="padding: 0;">
+            <table class="table">
+                <tbody><tr>
+                    <th style="border-top: 0;">File Name</th>
+                    <td style="border-top: 0;">report.html</td>
+                </tr>
+                <tr>
+                    <th>File Type</th>
+                    <td>data</td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
+</section>
+
+
+
+  <div align="center"><h1>Scan Report</h1></div>
+
+
+<hr>
+  <h4>Code</h4>
+
+ <section id="findings1">
+    <div class="box">
+
+        <div id="findings" class="box-content" style="padding: 0;">
+        </div>
+    </div>
+</section>
+
+</div>
+
+</body>
+
+
+</html>
+
+
